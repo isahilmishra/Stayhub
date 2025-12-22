@@ -1,0 +1,69 @@
+<%- include('../partials/head') %>
+</head>
+<body class="bg-gray-50">
+    <%- include('../partials/nav') %>
+    
+    <main class="container max-w-5xl px-4 py-12 mx-auto">
+        <a href="/homes" class="flex items-center mb-6 text-sm font-semibold text-gray-600 hover:underline">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to listings
+        </a>
+
+        <div class="overflow-hidden bg-white shadow-sm rounded-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                
+                <div class="relative h-80 md:h-full">
+                    <img src="<%= home.photo %>" alt="<%= home.houseName %>" class="object-cover w-full h-full transition duration-500 hover:scale-105">
+                    <div class="absolute top-4 left-4">
+                        <%- include('../partials/favourite') %>
+                    </div>
+                </div>
+
+                <div class="p-8 space-y-8">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900"><%= home.houseName %></h1>
+                        <div class="flex items-center mt-2 text-gray-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="text-sm font-medium"><%= home.location %></span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 border rounded-xl bg-gray-50">
+                        <div>
+                            <p class="text-sm tracking-wider text-gray-500 uppercase">Price</p>
+                            <p class="text-2xl font-bold text-gray-900">$<%= home.price %> <span class="text-sm font-normal text-gray-500">/ night</span></p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm tracking-wider text-gray-500 uppercase">Rating</p>
+                            <div class="flex items-center font-bold text-gray-900">
+                                <span class="text-yellow-500">★</span>
+                                <span class="ml-1"><%= home.rating %></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900">About this place</h3>
+                        <p class="mt-2 leading-relaxed text-gray-600"><%= home.description %></p>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="/rules/<%= home._id %>" 
+                           class="inline-flex items-center justify-center w-full px-6 py-3 font-semibold text-white transition duration-300 bg-red-500 shadow-md rounded-xl hover:bg-red-600 hover:shadow-lg group">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 transition-transform group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            Download House Rules (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
